@@ -130,7 +130,7 @@ const addBookInput = [
 	{ type: "string", title: "Title", for: "title" },
 	{ type: "string", title: "Author", for: "author" },
 	{ type: "string", title: "Publisher", for: "publisher" },
-	{ type: "string", title: "ISBN_No", for: "isbnNo" },
+	{ type: "number", title: "ISBN_No", for: "isbnNo" },
 	{ type: "number", title: "No_of_copies", for: "copies" },
 	{ type: "number", title: "Year_of_publication", for: "year" },
 ];
