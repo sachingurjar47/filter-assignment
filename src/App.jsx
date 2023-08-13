@@ -111,7 +111,6 @@ const initialbooks = [
 ];
 
 const tableHeading = [
-	{ title: "Id", for: "id" },
 	{ title: "Title", for: "title" },
 	{ title: "Author", for: "author" },
 	{ title: "Publisher", for: "publisher" },
@@ -141,7 +140,7 @@ const App = () => {
 	const [newBook, setNewBook] = useState({}); //state for books
 	const [filterBooks, setFilterBooks] = useState(books); //state for filter books
 	const [openDrawer, setOpenDrawer] = useState(false); //state for open drawer
-	const [openDialog, setOpenDialog] = useState(false); //state for open drawer
+	const [openDialog, setOpenDialog] = useState(false); //state for open Dialog
 	const [errors, setErrors] = useState({});
 	//function for filter books
 	const handleFilterBooks = () => {
@@ -150,7 +149,10 @@ const App = () => {
 				return book[key] === filterValue[key];
 			});
 		});
-		newFilterBooks.length === 0 ? "" : setFilterBooks(newFilterBooks);
+		if (newFilterBooks.length !== 0) {
+			setFilterBooks(newFilterBooks);
+			setOpenDrawer(false);
+		}
 	};
 
 	//function for clear books filter
@@ -199,6 +201,7 @@ const App = () => {
 			setBooks((prev) => [...prev, { ...newBook, id: uid }]);
 			setFilterBooks((prev) => [...prev, { ...newBook, id: uid }]);
 			setNewBook({});
+			setOpenDialog(false);
 		}
 	};
 	return (
