@@ -199,10 +199,15 @@ const App = () => {
 		};
 		if (checkError()) {
 			setBooks((prev) => [...prev, { ...newBook, id: uid }]);
-			setFilterBooks((prev) => [...prev, { ...newBook, id: uid }]);
+			setFilterBooks([...books, { ...newBook, id: uid }]);
+			handleClear();
 			setNewBook({});
 			setOpenDialog(false);
 		}
+	};
+	const handleCloseDialog = () => {
+		setOpenDialog(false);
+		setErrors({});
 	};
 	return (
 		<div style={{ margin: "10px" }}>
@@ -233,7 +238,7 @@ const App = () => {
 				>
 					<DialogTitle>Add Book</DialogTitle>
 					<IconButton
-						onClick={() => setOpenDialog(false)}
+						onClick={handleCloseDialog}
 						aria-label='delete'
 						size='large'
 					>
