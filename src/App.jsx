@@ -120,7 +120,7 @@ const tableHeading = [
 	{ title: "Year_of_publication", for: "year" },
 ];
 const filterFor = [
-	{ title: "Title,", for: "title" },
+	{ title: "Title", for: "title" },
 	{ title: "Author", for: "author" },
 	{ title: "Publisher", for: "publisher" },
 	{ title: "ISBN_No.", for: "isbnNo" },
